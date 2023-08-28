@@ -1,0 +1,74 @@
+<div fxLayout="row" fxLayoutAlign="center">
+
+  <mat-card style="height: 100%" fxFlex="90">
+
+
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let userList"> {{userList.lastName}} </mat-cell>
+      </ng-container>
+
+
+
+
+
+      <!-- Subject Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let userList"> {{userList.firstName}} </mat-cell>
+      </ng-container>
+
+      <!-- Note Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let userList"> {{userList.email}} </mat-cell>
+      </ng-container>
+
+
+      <!-- Note Column -->
+      <ng-container matColumnDef="obuseraccountcontrol">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Activated </mat-header-cell>
+        <mat-cell *matCellDef="let userList"> {{userList.obuseraccountcontrol}} </mat-cell>
+      </ng-container>
+
+
+
+      <!-- actions -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let note; let i=index;">
+          <button mat-icon-button color="accent" (click)="startEdit(i, note)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+        </mat-cell>
+
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let userList; columns: displayedColumns;"></mat-row>
+
+
+
+    </mat-table>
+
+
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="pageEvent = $event">
+    </mat-paginator>
+
+
+
+  </mat-card>
+</div>

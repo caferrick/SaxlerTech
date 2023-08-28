@@ -1,0 +1,80 @@
+
+
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card  fxFlex="90%">
+    <mat-card-title>
+
+      <div class="flex-container">
+
+        <div class="cardInner2" gdAreas.lt-md="side | content"
+             gdRows.lt-md="auto auto" >
+
+          <div [style.grid-area]="'side'">
+            <div><h3>Send Us A Message</h3>
+
+              <mat-card [formGroup]="myForm">
+                <mat-divider></mat-divider>
+
+                <mat-card-content>
+
+                  <mat-grid-list responsiveCols='{"xs": 1, "sm": 2, "md": 2, "lg": 2, "xl": 2}' rowHeight="100px">
+                    <mat-grid-tile>
+                      <mat-form-field class="blockForm">
+                        <input matInput placeholder="First Name" name="firstName" formControlName="firstName">
+
+                      </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                      <mat-form-field class="blockForm">
+                        <input matInput placeholder="Last Name" name="lastName" formControlName="lastName" >
+                      </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                      <mat-form-field class="blockForm">
+                        <input matInput placeholder="Email Address" name="email" formControlName="email" required type="email">
+                        <mat-error *ngIf="myForm.get('email').hasError('required')">You must enter an email
+                          value
+                        </mat-error>
+                        <mat-error *ngIf="myForm.get('email').hasError('email')">You must enter an valid email
+                          address
+                        </mat-error>
+                      </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                      <mat-form-field class="form-group blockFormGrow">
+                        <textarea matInput placeholder="Maximum 250 Characters" formControlName="message" rows="5" maxlength="200"></textarea>
+                      </mat-form-field>
+                    </mat-grid-tile>
+
+
+                    <mat-grid-tile>
+                      <a mat-button class="router-btn" (click)="sendMessage()">
+                        <mat-icon>
+                          email
+                        </mat-icon>
+                        Send Message
+                      </a>
+                    </mat-grid-tile>
+
+
+                  </mat-grid-list>
+
+                  <mat-divider></mat-divider>
+
+                </mat-card-content>
+              </mat-card>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </mat-card-title>
+
+  </mat-card>
+
+</div>

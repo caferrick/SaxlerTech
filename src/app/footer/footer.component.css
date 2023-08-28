@@ -1,0 +1,6 @@
+mat-toolbar {
+  text-align: center;
+  min-height: 30px;
+  font-size: 12px;
+  background-color: #ddd;
+}

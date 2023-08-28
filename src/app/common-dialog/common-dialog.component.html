@@ -1,0 +1,22 @@
+
+<h2 mat-dialog-title>{{title}}</h2>
+<hr>
+<div mat-dialog-content>
+  <p>{{message}}</p>
+  <hr>
+
+</div>
+
+
+
+<div mat-dialog-actions>
+  <button type="button" class="mat-raised-button mat-primary" (click)="closeDialog(true)">
+    {{confirmButtonText}}
+  </button>
+  <button type="button" class="mat-raised-button" *ngIf="!displayCancel()"
+          (click)="closeDialog(false)">
+    {{denyButtonText}}
+  </button>
+
+</div>
+

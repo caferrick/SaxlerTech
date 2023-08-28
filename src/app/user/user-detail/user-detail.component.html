@@ -1,0 +1,153 @@
+
+<div id="top"></div>
+
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card style="height: 100%" fxFlex="90">
+    <mat-card-title>
+      User Detail
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      <mat-toolbar>
+        <mat-toolbar-row fxLayoutAlign="left center" >
+
+          <button mat-button [matMenuTriggerFor]="menu"  fxShow="true" fxHide.gt-xs >
+            <mat-icon>menu</mat-icon> Menu </button>
+              <mat-menu #menu="matMenu">
+                <button  mat-menu-item [routerLink]="['/home']" >
+                  <mat-icon>arrow_back</mat-icon>
+                  <span>Home</span>
+                </button>
+                <button  mat-menu-item (click)="startEdit(hmData)" >
+                  <mat-icon>build</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button  mat-menu-item (click)="activateUser(hmData.uid)" >
+                  <mat-icon>thumb_up</mat-icon>
+                  <span>Activate User</span>
+                </button>
+                <button  mat-menu-item (click)="suspendUser(hmData.uid)" >
+                  <mat-icon>thumb_down</mat-icon>
+                  <span>Suspend User</span>
+                </button>
+                <button  mat-menu-item (click)="userGroupList()" >
+                  <mat-icon>group</mat-icon>
+                  <span>Group List</span>
+                </button>
+             </mat-menu>
+
+
+
+          <div fxLayoutGap="10px" fxShow="true" fxHide.lt-sm>
+
+          <button  mat-raised-button matTooltip="Go back to home screen" [routerLink]="['/home']">
+            <mat-icon>arrow_back</mat-icon>
+            Back
+          </button>
+
+          <span class="flex-spacer"></span>
+
+          <button mat-raised-button
+                  aria-label="Edit Current User" matTooltip="Edit Current User" color="accent" class="buttonRippleFix"
+                  (click)="startEdit(hmData)">
+            <mat-icon>build</mat-icon>
+            Edit
+          </button>
+
+
+          <button mat-raised-button
+                  aria-label="Activate User" matTooltip="Activate User" color="accent" class="buttonRippleFix"
+                  (click)="activateUser(hmData.uid)"
+                  *ngIf="hmData.obuseraccountcontrol && hmData.obuseraccountcontrol.toLowerCase() != 'activated'">
+            <mat-icon>thumb_up</mat-icon>
+            Activate
+          </button>
+
+          <button mat-raised-button
+                  aria-label="Suspend User" matTooltip="Suspend User" color="accent" class="buttonRippleFix"
+                  (click)="suspendUser(hmData.uid)"
+                  *ngIf="hmData.obuseraccountcontrol && hmData.obuseraccountcontrol.toLowerCase() === 'activated'">
+            <mat-icon>thumb_down</mat-icon>
+            Suspend
+          </button>
+
+          <a mat-raised-button color="accent" class="buttonRippleFix" (click)="userGroupList()"
+             matTooltip="List Users In a Group">
+            <mat-icon>group</mat-icon>
+            User In Group
+          </a>
+
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-card-subtitle>
+
+
+
+    <mat-card-content>
+
+      <mat-grid-list responsiveCols='{"xs": 1, "sm": 2, "md": 3, "lg": 3, "xl": 3}' rowHeight="100px">
+        <mat-grid-tile>
+          <h4 mat-header>User ID</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.uid | uppercase}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <h4 mat-header>Email Address</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.mail}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <h4 mat-header>Organization</h4>
+          <img class="" alt="" [src]="imagePath()">
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+          <h4 mat-header>First Name</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.givenname}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <h4 mat-header>Last Name</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.sn}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+          <h4 mat-header>Full Name</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.cn}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+          <h4 mat-header>Member ID</h4>
+          <mat-chip-list>
+            <mat-chip>{{hmData.memberid}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <mat-divider></mat-divider>
+
+      <h2>Raw Data</h2>
+      <pre class="pre-scrollable">{{ rawData | json  }}</pre>
+
+
+    </mat-card-content>
+
+
+  </mat-card>
+
+</div>

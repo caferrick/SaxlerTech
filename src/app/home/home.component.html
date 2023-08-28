@@ -1,0 +1,82 @@
+
+<div fxLayout="row" fxLayoutAlign="center">
+   <mat-card  fxFlex="90%">
+     <mat-card-title>
+
+     <div class="flex-container">
+
+       <div class="cardInner" gdAreas.lt-md="header | side | content | footer"
+            gdRows.lt-md="auto auto auto auto" >
+         <div [style.grid-area]="'side'">
+          <div><img src="assets/img/CircuitBoard.jpeg" ></div>
+         </div>
+
+         <div [style.grid-area]="'content'">
+           <div><h3>We make your ideas a reality</h3>
+              <p>From Idea to concept to implementation, we deliver technological
+               solutions that transform, improve  and streamline your business.  </p>
+           </div>
+         </div>
+        </div>
+
+     </div>
+
+    </mat-card-title>
+
+      <mat-card-content>
+    </mat-card-content>
+   </mat-card>
+
+</div>
+
+
+
+<div fxLayout="column" fxLayoutAlign="center" >
+
+   <mat-grid-list responsiveCols='{"xs": 1, "sm": 2, "md": 3, "lg": 3, "xl": 3}' rowHeight="250px" >
+
+     <mat-grid-tile>
+       <mat-card class="custom-card" >
+        <mat-card-title>
+          Application Development
+        </mat-card-title>
+        <mat-card-content>
+          <p>We build dynamic solutions hand crafted for your specific needs.
+            We utilize the latest proven web technologies to offer your customers, employees a gret user experience.
+          </p>
+        </mat-card-content>
+       </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card class="custom-card" >
+        <mat-card-title>
+          Cyber Security
+        </mat-card-title>
+        <mat-card-content>
+               <p>The majority of cyber attacks are aimed at small and medium-sized businesses.
+          These attacks are orchestrated by criminals looking to steal customer records, sensitive information,authentication credentials and more.</p>
+        </mat-card-content>
+      </mat-card>
+     </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card  class="custom-card" >
+        <mat-card-title>
+          Responsive Web Design
+        </mat-card-title>
+        <mat-card-content>
+          <p>Responsive Web Design is a term coined by Ethan Marcotte that articulates how to adapt a website’s layout
+            for multiple screen resolutions. Creating a responsive web design utilizes: The fluid grid concept calls for
+            page element sizing to be in relative units like percentages.
+            Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed.
+          </p>
+        </mat-card-content>
+       </mat-card>
+     </mat-grid-tile>
+
+
+   </mat-grid-list>
+  </div>
+
+<!--</div> -->

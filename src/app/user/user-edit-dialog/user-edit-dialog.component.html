@@ -1,0 +1,87 @@
+
+
+<h2 mat-dialog-title>
+
+  Edit User</h2>
+<hr>
+<mat-dialog-content [formGroup]="myForm">
+
+
+  <mat-grid-list [cols]="2" rowHeight="75px">
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="User ID" name="uid" formControlName="uid">
+        <mat-error *ngIf="myForm.get('uid').hasError('required')">You must make a selection
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="Email Address" name="cn" formControlName="email" required type="email">
+        <mat-error *ngIf="myForm.get('email').hasError('required')">You must enter an email
+          value
+        </mat-error>
+        <mat-error *ngIf="myForm.get('email').hasError('email')">You must enter an valid email
+          address
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="First Name" name="fName" formControlName="fName" required>
+        <mat-error *ngIf="myForm.get('fName').hasError('required')">You must enter a value
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="Last Name" name="lName" formControlName="lName" required>
+        <mat-error *ngIf="myForm.get('lName').hasError('required')">You must enter a value
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="Full Name" name="fullName" formControlName="fullName" required>
+        <mat-error *ngIf="myForm.get('fullName').hasError('required')">You must enter a value
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <mat-form-field *ngIf="secService.filterUiByOrg(secService.Organization.Dental)">
+        <input matInput [matDatepicker]="picker" placeholder="UCCI DOB" formControlName="hmuccidob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="HMFIM" name="hmfim" formControlName="hmfim">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="blockForm">
+        <input matInput placeholder="Provider ID" name="providerid" formControlName="providerid">
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+  <hr>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" [disabled]="!myForm.valid" (click)="save()">Save
+  </button>
+  <button class="mat-raised-button" mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,17 @@
+.mat-table {
+   overflow: auto;
+   max-height: 1000;
+   width: 100%
+}
+
+
+.mat-header-cell,
+.mat-sort-header-sorted{
+  color: darkblue;
+  font-size: 14px;
+}
+
+
+.is-focuseddd textarea {
+  border: 3px solid #009688;
+}
